@@ -1,9 +1,11 @@
 // Enemies our player must avoid
 class Enemy {
-    constructor (sprite, x, y) {
+    constructor (sprite, x, y, pos, speed) {
         this.sprite = 'images/enemy-bug.png';
-//        this.x = x;
-//        this.y = y;
+        this.x = x;
+        this.y = y;
+        this.pos= pos;
+        this.speed = speed;
     }
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
@@ -23,10 +25,11 @@ class Enemy {
 // This class requires an update(), render() and
 // a handleInput() method.
 class Player {
-    constructor (sprite, x = 200, y = 400) {
+    constructor (sprite, x = 200, y = 400, pos) {
         this.sprite = 'images/char-pink-girl.png';
         this.x = x;
         this.y = y;
+        this.pos = pos;
     }
     
     update () {
@@ -38,16 +41,17 @@ class Player {
     }
     
     handleInput (key) {
-        if (key === 'up') {
-            player.y -= 83;
-        } else if (key === 'down') {
-                player.y += 83;
-        } else if (key === 'left') {
-                player.x -= 100;
-        } else {
-                player.x +=100;
-        }
+            if ((key === 'up') && (player.y > -15)) {
+                player.y -= 83;
+            } else if ((key === 'down') && (player.y < 400)) {
+                    player.y += 83;
+            } else if ((key === 'left') && (player.x > 0)) {
+                    player.x -= 100;
+            } else if ((key === 'right') && (player.x < 400)) {
+                    player.x +=100;
+            }
     }
+
 }
 
 
