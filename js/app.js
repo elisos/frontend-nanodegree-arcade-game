@@ -1,20 +1,26 @@
 // Enemies our player must avoid
 class Enemy {
-    constructor (sprite, x, y, pos, speed = (Math.random()* dt), direction) {
+    constructor (y, speed) {
         this.sprite = 'http://icons.iconarchive.com/icons/bevel-and-emboss/car/96/car-purple-icon.png';
-        this.x = 400;
+        this.x = 450;
         this.y = y;
-        this.pos= pos;
         this.speed = speed;
-        this.direction = direction;
+//        this.pos= pos;
+        
+//        this.direction = direction;
     }
+//    , speed = (Math.random()* dt), direction
+    
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
     update (dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
-        this.x += this.speed*dt;
+        this.x -= this.speed * Math.random();
+        if (this.x <= -80) {
+            this.x = 450;
+        }
     }
 // Draw the enemy on the screen, required method for game
     render () {
@@ -58,7 +64,11 @@ class Player {
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
-let allEnemies = [];
+const car1 = new Enemy(300, 4);
+const car2 = new Enemy(220, 5);
+const car3 = new Enemy(140, 6);
+const allEnemies = [car1, car2, car3];
+
 
 // Place the player object in a variable called player
 let player = new Player();
