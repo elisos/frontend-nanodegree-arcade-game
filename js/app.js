@@ -17,7 +17,7 @@ class Enemy {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
-        this.x -= this.speed * Math.random();
+        this.x -= this.speed * dt;
         if (this.x <= -80) {
             this.x = 450;
         }
@@ -64,9 +64,9 @@ class Player {
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
-const car1 = new Enemy(300, 4);
-const car2 = new Enemy(220, 5);
-const car3 = new Enemy(140, 6);
+const car1 = new Enemy(300, 90);
+const car2 = new Enemy(220, 130);
+const car3 = new Enemy(135, 200);
 const allEnemies = [car1, car2, car3];
 
 
