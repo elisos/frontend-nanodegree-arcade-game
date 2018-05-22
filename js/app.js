@@ -1,3 +1,4 @@
+
 // Enemies our player must avoid
 class Enemy {
     constructor (y, speed) {
@@ -15,10 +16,10 @@ class Enemy {
         if (this.x <= -80) {
             this.x = 450;
         }
-        //collision detection
+        //collision detection from http://blog.sklambert.com/html5-canvas-game-2d-collision-detection/
         if (this.x < player.x + 50  && this.x + 50  > player.x &&
 		this.y < player.y + 50 && this.y + 50 > player.y) {
-            player.y = 455;
+            reset();
         }
     }
     
@@ -32,18 +33,15 @@ class Enemy {
 // This class requires an update(), render() and
 // a handleInput() method.
 class Player {
-    constructor (sprite, x = 200, y = 455, pos) {
+    constructor (sprite, x = 200, y = 455) {
         this.sprite = 'http://icons.iconarchive.com/icons/martin-berube/flat-animal/96/chicken-icon.png';
         this.x = x;
         this.y = y;
-        this.pos = pos;
     }
     
     update () {
         if (this.y === 40){
-            setTimeout (function () {
-                this.y = 455;
-            }, 1000);   
+            callModal();
         }
     }
     
@@ -65,6 +63,36 @@ class Player {
     }
 }
 
+function reset() {
+    player.y = 455;
+    player.x = 200;
+}
+
+//Constants for Modal
+const modal = document.getElementById('modal');
+const modalChicken = document.getElementById('modal-chicken');
+const playAgain = document.getElementById('play-again');
+
+//from https://www.w3schools.com/howto/howto_css_modals.asp
+function callModal () {
+    setTimeout (function () {
+    modal.style.display = "block";
+    modalChicken.classList.add("animated", "infinite", "bounce");
+    }, 850);
+}
+
+playAgain.onclick = function() {
+    modal.style.display = "none";
+    reset();
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+        reset();
+    }
+}
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
