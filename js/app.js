@@ -5,23 +5,23 @@ class Enemy {
         this.x = 450;
         this.y = y;
         this.speed = speed;
-//        this.pos= pos;
-        
-//        this.direction = direction;
     }
-//    , speed = (Math.random()* dt), direction
     
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
     update (dt) {
-    // You should multiply any movement by the dt parameter
-    // which will ensure the game runs at the same speed for
-    // all computers.
+        //set the speed of movement and make the enemies loop around continuously
         this.x -= this.speed * dt;
         if (this.x <= -80) {
             this.x = 450;
         }
+        //collision detection
+        if (this.x < player.x + 50  && this.x + 50  > player.x &&
+		this.y < player.y + 50 && this.y + 50 > player.y) {
+            player.y = 455;
+        }
     }
+    
 // Draw the enemy on the screen, required method for game
     render () {
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
@@ -40,7 +40,11 @@ class Player {
     }
     
     update () {
-        
+        if (this.y === 40){
+            setTimeout (function () {
+                this.y = 455;
+            }, 1000);   
+        }
     }
     
     render () {
@@ -64,9 +68,9 @@ class Player {
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
-const car1 = new Enemy(300, 90);
-const car2 = new Enemy(220, 130);
-const car3 = new Enemy(135, 200);
+const car1 = new Enemy(300, 150);
+const car2 = new Enemy(220, 190);
+const car3 = new Enemy(135, 240);
 const allEnemies = [car1, car2, car3];
 
 
