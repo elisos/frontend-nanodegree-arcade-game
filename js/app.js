@@ -69,11 +69,24 @@ function reset() {
 }
 
 //Constants for Modal
+const startModal = document.getElementById('start-modal');
+const startButton = document.getElementById('start');
 const modal = document.getElementById('modal');
 const modalChicken = document.getElementById('modal-chicken');
 const playAgain = document.getElementById('play-again');
 
 //from https://www.w3schools.com/howto/howto_css_modals.asp
+startButton.onclick = function() {
+    startModal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == startModal) {
+        startModal.style.display = "none";
+    }
+}
+
 function callModal () {
     setTimeout (function () {
     modal.style.display = "block";

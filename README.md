@@ -27,7 +27,7 @@ This arcade game works well in all browsers. A keyboard is required to play.
 This game uses a css animation library called Animate, found [here](https://github.com/daneden/animate.css/).
 
 ## Attributions
--The chicken is from [here](http://www.iconarchive.com/show/flat-animal-icons-by-martin-berube/chicken-icon.html).
+-The chicken is from [here](http://www.iconarchive.com/show/flat- animal-icons-by-martin-berube/chicken-icon.html).
 -The car icon is from [here](http://www.iconarchive.com/show/car-icons-by-bevel-and-emboss/car-purple-icon.html).
 -The game logic was provided by Udacity.
 -The code for creating a modal is from [here](https://www.w3schools.com/howto/howto_css_modals.asp).
