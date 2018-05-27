@@ -17,10 +17,10 @@ class Enemy {
             this.x = 450;
         }
         //collision detection from http://blog.sklambert.com/html5-canvas-game-2d-collision-detection/
-        if (this.x < player.x + 50  && this.x + 50  > player.x &&
-		this.y < player.y + 50 && this.y + 50 > player.y) {
-            reset();
-        }
+//        if (this.x < player.x + 50  && this.x + 50  > player.x &&
+//		this.y < player.y + 50 && this.y + 50 > player.y) {
+//            player.reset();
+//        }
     }
     
 // Draw the enemy on the screen, required method for game
@@ -51,22 +51,36 @@ class Player {
     
     handleInput (key) {
         //link key inputs collected by the event listener to player movements, limited to the gameboard.
-            if ((key === 'up') && (player.y > 40)) {
-                player.y -= 83;
-            } else if ((key === 'down') && (player.y < 400)) {
-                    player.y += 83;
-            } else if ((key === 'left') && (player.x > 0)) {
-                    player.x -= 100;
-            } else if ((key === 'right') && (player.x < 400)) {
-                    player.x +=100;
+            if ((key === 'up') && (this.y > 40)) {
+                this.y -= 83;
+            } else if ((key === 'down') && (this.y < 400)) {
+                    this.y += 83;
+            } else if ((key === 'left') && (this.x > 0)) {
+                    this.x -= 100;
+            } else if ((key === 'right') && (this.x < 400)) {
+                    this.x +=100;
             }
     }
-}
-
-function reset() {
+    
+    reset() {
     player.y = 455;
     player.x = 200;
+    }
+
 }
+
+// Now instantiate your objects.
+// Place all enemy objects in an array called allEnemies
+const car1 = new Enemy(300, 300);
+const car2 = new Enemy(220, 350);
+const car3 = new Enemy(135, 400);
+const allEnemies = [car1, car2, car3];
+
+
+// Place the player object in a variable called player
+let player = new Player();
+
+
 
 //Constants for Modal
 const startModal = document.getElementById('start-modal');
@@ -96,27 +110,17 @@ function callModal () {
 
 playAgain.onclick = function() {
     modal.style.display = "none";
-    reset();
+    player.reset();
 }
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
     if (event.target == modal) {
         modal.style.display = "none";
-        reset();
+        player.reset();
     }
 }
 
-// Now instantiate your objects.
-// Place all enemy objects in an array called allEnemies
-const car1 = new Enemy(300, 150);
-const car2 = new Enemy(220, 190);
-const car3 = new Enemy(135, 240);
-const allEnemies = [car1, car2, car3];
-
-
-// Place the player object in a variable called player
-let player = new Player();
 
 
 // This listens for key presses and sends the keys to your
