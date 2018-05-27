@@ -58,8 +58,8 @@ class Player {
     }
     
     reset() {
-    player.y = 455;
-    player.x = 200;
+    this.y = 455;
+    this.x = 200;
     }
 
 }
