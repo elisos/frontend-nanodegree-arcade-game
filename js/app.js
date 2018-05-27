@@ -16,11 +16,6 @@ class Enemy {
         if (this.x <= -80) {
             this.x = 450;
         }
-        //collision detection from http://blog.sklambert.com/html5-canvas-game-2d-collision-detection/
-//        if (this.x < player.x + 50  && this.x + 50  > player.x &&
-//		this.y < player.y + 50 && this.y + 50 > player.y) {
-//            player.reset();
-//        }
     }
     
 // Draw the enemy on the screen, required method for game
@@ -79,8 +74,6 @@ const allEnemies = [car1, car2, car3];
 
 // Place the player object in a variable called player
 let player = new Player();
-
-
 
 //Constants for Modal
 const startModal = document.getElementById('start-modal');

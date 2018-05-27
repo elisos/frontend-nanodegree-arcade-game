@@ -97,16 +97,16 @@ var Engine = (function(global) {
     }
     
     function checkCollisions() {
+    //collision detection from http://blog.sklambert.com/html5-canvas-game-2d-collision-detection/
     for (const enemy of allEnemies){
-        if (this.x < player.x + 50  && this.x + 50  > player.x &&
-		this.y < player.y + 50 && this.y + 50 > player.y) {
+        if (enemy.x < player.x + 50  && enemy.x + 50  > player.x &&
+		enemy.y < player.y + 50 && enemy.y + 50 > player.y) {
             player.reset();
             break;
             }
         }
     }
 
-//              for(let i=0 ; i < allEnemies.length; i++) {
     /* This function initially draws the "game level", it will then call
      * the renderEntities function. Remember, this function is called every
      * game tick (or loop of the game engine) because that's how games work -
