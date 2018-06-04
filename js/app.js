@@ -1,8 +1,8 @@
 
 // Enemies our player must avoid
 class Enemy {
-    constructor (y, speed) {
-        this.sprite = 'http://icons.iconarchive.com/icons/bevel-and-emboss/car/96/car-purple-icon.png';
+    constructor (sprite, y, speed) {
+        this.sprite = sprite;
         this.x = 450;
         this.y = y;
         this.speed = speed;
@@ -66,9 +66,9 @@ class Player {
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
-const car1 = new Enemy(300, 300);
-const car2 = new Enemy(220, 350);
-const car3 = new Enemy(135, 400);
+const car1 = new Enemy("http://icons.iconarchive.com/icons/google/noto-emoji-travel-places/96/42546-fire-engine-icon.png", 280, 320);
+const car2 = new Enemy("http://icons.iconarchive.com/icons/google/noto-emoji-travel-places/96/42545-ambulance-icon.png",200, 370);
+const car3 = new Enemy("http://icons.iconarchive.com/icons/google/noto-emoji-travel-places/96/42547-police-car-icon.png", 115, 420);
 const allEnemies = [car1, car2, car3];
 
 

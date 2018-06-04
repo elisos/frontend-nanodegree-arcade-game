@@ -183,7 +183,9 @@ var Engine = (function(global) {
         'images/stone-block.png',
         'images/water-block.png',
         'images/grass-block.png',
-        'http://icons.iconarchive.com/icons/bevel-and-emboss/car/96/car-purple-icon.png',
+        "http://icons.iconarchive.com/icons/google/noto-emoji-travel-places/96/42546-fire-engine-icon.png",
+        "http://icons.iconarchive.com/icons/google/noto-emoji-travel-places/96/42545-ambulance-icon.png",
+        "http://icons.iconarchive.com/icons/google/noto-emoji-travel-places/96/42547-police-car-icon.png",
         'http://icons.iconarchive.com/icons/martin-berube/flat-animal/96/chicken-icon.png'
     ]);
     Resources.onReady(init);
